@@ -1,0 +1,221 @@
+// Carousel Bootstrap 3.3.7 Custom
+// --------------------------------------------------
+// Wrapper for the slide container and indicators
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  > .item {
+    display: none;
+    position: relative;
+    @include transition(.6s ease-in-out left);
+
+    // Account for jankitude on images
+    > img,
+    > a > img {
+      @include img-responsive;
+      line-height: 1;
+    }
+
+    // WebKit CSS3 transforms for supported devices
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      @include transition-transform(0.6s ease-in-out);
+      @include backface-visibility(hidden);
+      @include perspective(1000px);
+
+      &.next,
+      &.active.right {
+        @include translate3d(100%, 0, 0);
+        left: 0;
+      }
+      &.prev,
+      &.active.left {
+        @include translate3d(-100%, 0, 0);
+        left: 0;
+      }
+      &.next.left,
+      &.prev.right,
+      &.active {
+        @include translate3d(0, 0, 0);
+        left: 0;
+      }
+    }
+  }
+
+  > .active,
+  > .next,
+  > .prev {
+    display: block;
+  }
+
+  > .active {
+    left: 0;
+  }
+
+  > .next,
+  > .prev {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  > .next {
+    left: 100%;
+  }
+  > .prev {
+    left: -100%;
+  }
+  > .next.left,
+  > .prev.right {
+    left: 0;
+  }
+
+  > .active.left {
+    left: -100%;
+  }
+  > .active.right {
+    left: 100%;
+  }
+}
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    background-color: $carousel-indicator-bg;
+    display: inline-block;
+    width: $carousel-indicator-width;
+    height: $carousel-indicator-height;
+    margin: 1px;
+    text-indent: -999px;
+    //border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+
+    //// IE8-9 hack for event handling
+    ////
+    //// Internet Explorer 8-9 does not support clicks on elements without a set
+    //// `background-color`. We cannot use `filter` since that's not viewed as a
+    //// background color by the browser. Thus, a hack is needed.
+    //// See https://developer.mozilla.org/en-US/docs/Web/Events/click#Internet_Explorer
+    ////
+    //// For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
+    //// set alpha transparency for the best results possible.
+    //background-color: #000 \9; // IE8
+    //background-color: rgba(0,0,0,0); // IE9
+    &:not(.active) {
+      background-color: #fff;
+    }
+  }
+  .active, li:hover {
+    background-color: $carousel-indicator-active-bg;
+  }
+}
+
+// Left/right controls for nav
+// ---------------------------
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: $carousel-control-width;
+  font-size: $carousel-control-font-size;
+  color: $carousel-control-color;
+  height: 1.412em;
+  line-height: 1.206em;
+  margin-top: -.706em;
+  opacity: $carousel-control-opacity;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+
+  &.left > .svg { left: -.353em; }
+  &.right {
+    left: auto;
+    right: 0;
+    > .svg { right: .147em; }
+  }
+
+  // Hover/focus state
+  &:hover,
+  &:focus {
+    outline: 0;
+    color: $carousel-control-color;
+    text-decoration: none;
+    opacity: .9;
+  }
+}
+
+// Optional captions
+// -----------------------------
+// Hidden by default for smaller viewports
+.carousel-caption {
+  line-height: 1.2;
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: $carousel-caption-color;
+  text-shadow: $carousel-text-shadow;
+  & .btn {
+    text-shadow: none; // No shadow for button elements in carousel-caption
+  }
+}
+
+@media (max-width: $screen-xs-max) {
+  .carousel-caption {
+    text-align: center;
+    bottom: 20px;
+  }
+  .caption-hd {
+    background-color: rgba(255,255,255,.6);
+    padding: 6px 10px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .carousel-caption {
+    height: 50%;
+    overflow: hidden;
+    left: 60%;
+    top: 20%;
+    right: 40px;
+    text-align: left;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .carousel-control, .caption-hd {
+    font-size: 2.429em;
+    //padding-top:4px;height: 46px;margin-top:-23px;
+    //&.left { left: -($grid-gutter-width / 2); }
+    //&.right { right: -($grid-gutter-width / 2); }
+  }
+  .caption-btn {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    min-width: 140px;
+  }
+  .carousel-indicators { bottom: 8px; }
+}
+

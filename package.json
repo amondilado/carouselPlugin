@@ -1,0 +1,25 @@
+{
+  "name": "carousel_plugin",
+  "version": "1.0.0",
+  "description": "Carousel jquery plugin for Bootstrap v3.3.7",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "mevangelinakis",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "2.2.4",
+    "bootstrap-sass": "3.3.7"
+  },
+  "devDependencies": {
+    "browser-sync": "2.23.7",
+    "gulp": "^3.9.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-uglify": "^3.0.1",
+    "pump": "^3.0.0"
+  }
+}

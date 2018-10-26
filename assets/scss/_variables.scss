@@ -1,0 +1,125 @@
+$hasCookieconsent: "true";
+
+$brand-primary: #21a179;
+$brand-pr: $brand-primary;
+$brand-pr-d: lighten($brand-primary,10%);
+$brand-sec: #616169;
+$body-bg: #fff;
+$footer-bg: #f5f5f7;
+$brd-color: #e0e0e0;
+
+// Global text color on `<body>`.
+$text-color: $brand-sec;
+$text-muted: #999;
+// Colors
+$clr-1: $brand-sec;
+$clr-2: #81ae9d;
+$clr-3: #414042;
+$clr-4: #87919e;
+
+$font-family-native: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-sans-serif: 'Open Sans', $font-family-native;
+$ff-2: 'Open Sans Condensed', $font-family-native;
+$font-size-base: 14px;
+$font-size-small: 13px;
+$font-size-h1: 22px;
+$font-size-h2: 22px;
+$font-size-h3: 	1.429em; // ~20px
+$font-size-h4: 1.286rem; // ~18px
+$font-size-h5: ceil(($font-size-base * 1.143)); // ~16px
+$font-size-h6: $font-size-base;
+
+$headings-font-weight: 700;
+
+$link-hover-color: lighten($brand-pr,6%);
+$link-hover-decoration: none;
+
+// GRID ------------------------------------------------------------------------
+$grid-gutter-width: 20px;
+$container-tablet: 100%;
+$container-desktop: 100%;
+$container-large-desktop: (1280px + $grid-gutter-width);
+$screen-lg: ($container-large-desktop + $grid-gutter-width);
+$container-max: (1600px + $grid-gutter-width);
+$screen-xlg-min: 1600px;
+
+// BUTTONS -------------------------------------------------------------------
+$padding-small-vertical: 6px;
+$padding-small-horizontal: 12px;
+$padding-base-vertical: 11px;
+$padding-large-vertical: 17px;
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+$btn-default-bg: transparent;
+$btn-default-border: $brand-pr;
+$btn-default-color: $brand-pr;
+$btn-primary-border: $brand-pr;
+
+$close-font-weight: normal;
+
+// FORM ELEMENTS -------------------------------------------------------------------
+$input-border: #e3e3e3;
+$input-border-radius: 2px;
+$input-height-small: 34px;
+$input-height-base: 42px;
+$input-height-large: 46px;
+// Focus
+$input-border-focus: $brand-pr;
+// Legend
+$legend-color: $brand-sec;
+
+
+// CAROUSEL  -------------------------------------------------------------------
+$carousel-text-shadow: none;
+$carousel-control-color: #000;
+$carousel-control-width: 1.412em;
+$carousel-control-opacity: .35;
+$carousel-control-font-size: 1.571rem;
+
+$carousel-indicator-active-bg: #000;
+$carousel-indicator-bg: #fff;
+$carousel-indicator-width: 40px;
+$carousel-indicator-height: 4px;
+
+$carousel-caption-color: #333;
+
+// NAV ----------------------------------------------------------------------------
+$nav-link-padding: 7px 8px;
+$nav-link-hover-bg: transparent;
+
+// Breadcrumbs --------------------------------------------------------------------
+$breadcrumb-padding-vertical: 0;
+$breadcrumb-padding-horizontal: 0;
+$breadcrumb-bg: transparent;
+$breadcrumb-color: $clr-4;
+$breadcrumb-active-color: $clr-4;
+
+// TABLES ----------------------------------------------------------------------------
+$table-border-color: #e5e5e5;
+
+// Pagination ----------------------------------------------------------------------------
+$pagination-color: $brand-sec;
+$pagination-bg: #fff;
+$pagination-border: #ebebeb;
+$pagination-hover-color: $brand-pr;
+$pagination-active-color: #fff;
+$pagination-active-bg: $clr-4;
+$pagination-active-border: $clr-4;
+$pagination-disabled-bg: #fff;
+$pagination-disabled-color: #bfc3db;
+
+// PANELS  -----------------------------------------------------------------------
+$panel-bg: transparent;
+$panel-border-radius: 0;
+
+// TABS  -------------------------------------------------------------------------
+$nav-tabs-border-color: #dedede;
+$nav-tabs-link-hover-border-color: $clr-2;
+$nav-tabs-active-link-hover-border-color: $clr-2;
+
+// MODALS  -------------------------------------------------------------------------
+$modal-title-padding: 10px 8px;
+
+// TOOLTIPS  -------------------------------------------------------------------------
+$tooltip-max-width:           190px;
