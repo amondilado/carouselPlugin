@@ -3,6 +3,25 @@
 // Wrapper for the slide container and indicators
 .carousel {
   position: relative;
+  max-width: 700px;
+
+  .carousel-indicators-outer, .carousel-controls-outer {
+    overflow: hidden;
+    position: absolute;
+    margin-left: 10px;
+    top: 0;
+    bottom: 0;
+    left: -122px;
+    width: 80px;
+  }
+
+  .carousel-indicators-outer {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .carousel-controls-outer {
+    display: block;
+  }
 }
 
 .carousel-inner {
@@ -91,19 +110,22 @@
   bottom: 0;
   left: 50%;
   z-index: 15;
-  width: 60%;
-  margin-left: -30%;
+  width: 100%;
+  margin-left: 0;
   margin-bottom: 0;
   padding-left: 0;
   list-style: none;
   text-align: center;
+  overflow: hidden;
+  @include transition-transform( .2s ease-out 0s);
 
   li {
+    border-radius: 0;
     background-color: $carousel-indicator-bg;
-    display: inline-block;
-    width: $carousel-indicator-width;
-    height: $carousel-indicator-height;
-    margin: 1px;
+    display: block;
+    height: auto;
+    width: 100%;
+    margin: 1px 0;
     text-indent: -999px;
     //border-radius: 10px;
     cursor: pointer;
@@ -134,31 +156,60 @@
 .carousel-control {
   position: absolute;
   top: 50%;
-  left: 0;
-  width: $carousel-control-width;
-  font-size: $carousel-control-font-size;
-  color: $carousel-control-color;
-  height: 1.412em;
-  line-height: 1.206em;
+  bottom: auto;
+  left: 10px;
+  width: 60px;
+  height: 24px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: $clr-3;
+  line-height: 1;
   margin-top: -.706em;
   opacity: $carousel-control-opacity;
   text-align: center;
-  background-color: #fff;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   z-index: 10;
+  @include transition-transform( .2s ease-out 0s);
 
-  &.left > .svg { left: -.353em; }
+  &.left.disabled {
+    @include translate3d(0,-100px,0);
+  }
+  &.left {
+    top: 0;
+    margin-top: 0;
+    border-bottom: 2px solid $clr-2;
+
+    .svg{
+      left: 0;
+      @include rotate(90deg);
+    }
+  }
   &.right {
-    left: auto;
+    top: auto;
     right: 0;
-    > .svg { right: .147em; }
+    bottom: 0;
+    left: auto;
+    border-top: 2px solid $clr-2;
+
+    .svg{
+      right: 0;
+      @include rotate(90deg);
+    }
+
+    &.disabled {
+      @include translate3d(0,100px,0);
+    }
+  }
+  &.disabled {
+    opacity: .2;
   }
 
   // Hover/focus state
   &:hover,
   &:focus {
     outline: 0;
-    color: $carousel-control-color;
+    color: $brand-pr;
+    border-color: $brand-pr;
     text-decoration: none;
     opacity: .9;
   }
