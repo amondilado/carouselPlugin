@@ -1,6 +1,7 @@
 {
   "name": "carousel_plugin",
   "version": "1.0.0",
+  "repository": "https://github.com/mevangelinakis/carouselPlugin",
   "description": "Carousel jquery plugin for Bootstrap v3.3.7",
   "main": "gulpfile.js",
   "scripts": {

@@ -122,14 +122,12 @@
     position: relative;
     border-radius: 0;
     background-color: #f2f2f2;
-    border: 1px solid #fff;
     display: block;
     height: auto;
     width: 80px;
     height: 80px;
     margin: 1px 0 10px;
     text-indent: 0;
-    //border-radius: 10px;
     cursor: pointer;
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.1);
 
@@ -145,12 +143,13 @@
     //background-color: #000 \9; // IE8
     //background-color: rgba(0,0,0,0); // IE9
     &:not(.active) {
-      background-color: #fff;
       border: 1px solid #e5e5e5;
+      background-color: #fff;
       box-shadow: none;
     }
     
     &:hover, &:focus, &.active {
+      border: 1px solid transparent;
       box-shadow: 0 0 8px 0 rgba(0,0,0,.1);
       &::after {
         content: '';
@@ -164,7 +163,7 @@
     }
   }
   .active, li:hover {
-    background-color: $carousel-indicator-active-bg;
+    background-color: $clr-2;
   }
 }
 
@@ -203,9 +202,7 @@
   }
   &.right {
     top: auto;
-    right: 0;
     bottom: 0;
-    left: auto;
     border-top: 2px solid $clr-2;
 
     .svg{

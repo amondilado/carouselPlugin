@@ -38,7 +38,7 @@
         init: function() {
             var _self = this;
             this.el.on('slid.bs.carousel', function(e) {
-                _self.onSlide(_self);
+                _self._onSlide(_self);
             });
         },
 
@@ -48,7 +48,7 @@
             return this;
         },
 
-        onSlide: function() {
+        _onSlide: function() {
             var _self = this;
             var indiActive = $('.carousel-indicator.active'),
                 indiIndex = indiActive.index(), // indiActive.data("slide-to"); zero based
@@ -62,16 +62,23 @@
             }
 
             // Handle controls visibility
-            if ((indiIndex > 0) && (indiIndex < this.indiLength)) {
-                $('.carousel-control').removeClass('disabled');
+            if (indiIndex > 0) {
+                _self._show(this.controlPrev);
             }
             if (indiIndex === this.indiLength) {
-                _self.hide(this.controlNext);
+                _self._hide(this.controlNext);
             }
             if (indiIndex < 1) {
-                _self.hide(this.controlPrev);
+                _self._hide(this.controlPrev);
+            }
+            if (indiIndex < this.indiLength) {
+                _self._show(this.controlNext);
             }
 
+            console.log(indiActivePosTop);
+            console.log(this.indiOuterPosTop);
+            console.log(indiActivePosBot);
+            console.log(this.indiOuterHeight);
             // Return if active node is within visible area
             if (indiActivePosTop > this.indiOuterPosTop && indiActivePosBot < this.indiOuterHeight) {
                 return;
@@ -79,19 +86,23 @@
 
             // If active node is hidden translate list up
             if (indiActivePosBot > this.indiOuterHeight) {
-                _self.transform(dy);
+                _self._transform(dy);
             }
             // Translate list top to btm
             else if (indiActivePosTop < this.indiOuterPosTop) {
-                _self.transform(dy);
+                _self._transform(dy);
             }
         },
 
-        transform: function(dy) {
+        _transform: function(dy) {
             this.indiList.css("transform", "translate3d(0,-" + dy + "px,0)");
         },
 
-        hide: function(elem) {
+        _show: function(elem) {
+            elem.removeClass('disabled');
+        },
+
+        _hide: function(elem) {
             elem.addClass('disabled');
         }
     }

@@ -12,7 +12,7 @@ var browserSync = require('browser-sync').create();
 // Live reload
 gulp.task('watch', ['sass'], function() {
     browserSync.init({
-        proxy: "localhost:80/" + projectName
+        proxy: "localhost:80/carouselPlugin"
     });
     gulp.watch('assets/scss/**/*.scss', ['sass']);
     gulp.watch('**/*.html').on('change', browserSync.reload);
