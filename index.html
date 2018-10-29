@@ -6,29 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carousel with Vertical Thumbnails</title>
-    <link rel="stylesheet" href="assets/css/bootstrap_critical.css">
+    <link rel="stylesheet" href="assets/css/bootstrap_critical.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/theme.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Bootstrap 3.3.7 Carousel with Vertical Thumbnails</h1>
+        <h1 class="text-center">Bootstrap 3.3.7 Carousel with Vertical Thumbnails</h1>
         <div id="carouselThumbsV" class="center carousel slide carousel-thumbs" data-ride="carousel" data-interval="false">
-            <!-- Indicators -->
-            <div class="carousel-indicators-outer">
-              <ol class="text-center carousel-indicators">
-                  <li data-target="#carouselThumbsV" data-slide-to="0" class="carousel-indicator active">
-                    <img src="assets/img/carousel_thumb_1.jpg" class="center img-responsive" alt="...">
-                  </li>
-                  <li data-target="#carouselThumbsV" data-slide-to="1" class="carousel-indicator">
-                    <img src="assets/img/carousel_thumb_2.jpg" class="center img-responsive" alt="...">
-                  </li>
-                  <li data-target="#carouselThumbsV" data-slide-to="2" class="carousel-indicator">
-                    <img src="assets/img/carousel_thumb_3.jpg" class="center img-responsive" alt="...">
-                  </li>
-              </ol>
-            </div>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
@@ -43,9 +29,6 @@
                 </div>
             </div>
 
-            <!-- Controls
-            TODO render if slides > 1
-          -->
             <div class="carousel-controls-outer">
               <a class="left carousel-control" href="#carouselThumbsV" role="button" data-slide="prev">
                 <svg height="38" viewBox="0 0 20 38" xmlns="http://www.w3.org/2000/svg" class="u-pos-r svg svg-ro-l" preserveAspectRatio="xMaxYMax meet">
@@ -60,12 +43,31 @@
                 </svg>
               </a>
           </div>
+          <!-- Indicators -->
+          <div class="carousel-indicators-outer">
+            <ol class="text-center carousel-indicators">
+                <li data-target="#carouselThumbsV" data-slide-to="0" class="thumb carousel-indicator active">
+                  <img src="assets/img/carousel_thumb_1.jpg" class="center img-responsive" alt="...">
+                </li>
+                <li data-target="#carouselThumbsV" data-slide-to="1" class="thumb carousel-indicator">
+                  <img src="assets/img/carousel_thumb_2.jpg" class="center img-responsive" alt="...">
+                </li>
+                <li data-target="#carouselThumbsV" data-slide-to="2" class="thumb carousel-indicator">
+                  <img src="assets/img/carousel_thumb_3.jpg" class="center img-responsive" alt="...">
+                </li>
+            </ol>
+          </div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/jquery.verticalCarousel.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $('#carouselThumbsV').verticalCarousel();
+        });
+    </script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@ gulp.task('cssmin', function () {
 // JS minify
 gulp.task('jsmin', function (cb) {
     pump([
-            gulp.src(assetsDir + 'js/carousel.js'),
+            gulp.src(assetsDir + 'js/jquery.verticalCarousel.js'),
             uglify(),
             rename({ suffix: '.min' }),
             gulp.dest(assetsDir + 'js/')

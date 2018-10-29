@@ -1,2 +1,5 @@
 # Global
 node_modules/
+
+# Stylesheets
+assets/css/bootstrap_critical.css

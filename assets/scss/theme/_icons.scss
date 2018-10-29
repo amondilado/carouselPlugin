@@ -1,0 +1,14 @@
+.icon, .svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// SVG icons
+.svg {
+  width:1em;
+  height:1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  pointer-events: none;
+}
