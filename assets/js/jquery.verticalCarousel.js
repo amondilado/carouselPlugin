@@ -1,20 +1,11 @@
 (function($, window, document, undefined) {
-
     'use strict';
 
-    $.fn.verticalCarousel = function() {
+    var old = $.fn.carouselVerticalThumbs;
 
-        var $elem = $(this);
-        var data = $elem.data('vertical-carousel');
-        if (!data) $elem.data('vertical-carousel', (data = new VerticalCarousel($elem) ));
-        
-        return this;
-    }
-
-    var VerticalCarousel = function (element) {
-        
+    var CarouselVerticalThumbs = function (element) {
         this.el = $(element);
-
+// get this parent elements
         this.indiOuter = $('.carousel-indicators-outer'),
         this.indiOuterPosTop = Math.floor(this.indiOuter.position().top),
         this.indiList = $('.carousel-indicators'),
@@ -30,16 +21,17 @@
 
         return this;
     }
-
     //
-    // Plugin prototype
+    // Plugin definition
     //
-    VerticalCarousel.prototype = {
+    CarouselVerticalThumbs.prototype = {
+        constructor: CarouselVerticalThumbs,
         init: function() {
             var _self = this;
             this.el.on('slid.bs.carousel', function(e) {
                 _self._onSlide(_self);
             });
+            console.log('VerticalCarousel this on init', this,'\n_self:',_self);
         },
 
         destroy: function () {
@@ -106,5 +98,21 @@
             elem.addClass('disabled');
         }
     }
- 
-})(jQuery, window, document);
+
+    $.fn.carouselVerticalThumbs = function() {
+        var $elem = $(this);
+        var data = $elem.data('vertical-carousel');
+        if (!data) $elem.data('vertical-carousel', (data = new CarouselVerticalThumbs($elem) ));
+        return this;
+    }
+
+    $.fn.carouselVerticalThumbs.Constructor = CarouselVerticalThumbs;
+
+    $.fn.carouselVerticalThumbs.noConflict = function () {
+        $.fn.carouselVerticalThumbs = old;
+        return this;
+    };
+
+    $.fn.carouselVerticalThumbs.version = "1.0";
+
+})(window.jQuery, window, document);

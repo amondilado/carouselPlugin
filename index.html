@@ -15,7 +15,6 @@
     <div class="container">
         <h1 class="text-center">Bootstrap 3.3.7 Carousel with Vertical Thumbnails</h1>
         <div id="carouselThumbsV" class="center carousel slide carousel-thumbs" data-ride="carousel" data-interval="false">
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -92,10 +91,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.verticalCarousel.min.js"></script>
+    <script src="assets/js/jquery.verticalCarousel.js"></script>
+    <script src="assets/js/bplt_demo.js"></script>
     <script>
-        $( document ).ready(function() {
-            $('#carouselThumbsV').verticalCarousel();
+        $(function() {
+          $('#carouselThumbsV').carouselVerticalThumbs();
         });
     </script>
 </body>
